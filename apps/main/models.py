@@ -7,7 +7,7 @@ class Settings(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return f"{self.id}"
+        return f"{self.title}"
 
     class Meta:
         verbose_name = ""
