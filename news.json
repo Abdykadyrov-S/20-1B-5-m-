@@ -1,0 +1,1 @@
+[{"model": "news.news", "pk": 1, "fields": {"title": "news1", "description": "news1", "image": "news/how-api-works.webp", "created": "2024-11-13T10:24:03.836Z", "is_active": true}}, {"model": "news.news", "pk": 2, "fields": {"title": "news2", "description": "news2", "image": "news/how-api-works_SHhXj9n.webp", "created": "2024-11-13T10:24:20.151Z", "is_active": true}}]
