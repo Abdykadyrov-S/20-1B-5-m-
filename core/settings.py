@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # apps
     'apps.main',
+    'apps.news',
 
     # rest
     'rest_framework',
