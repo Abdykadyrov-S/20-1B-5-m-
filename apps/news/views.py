@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 # from rest_framework.generics import ListAPIView, CreateAPIView, \
 # RetrieveAPIView, UpdateAPIView, DestroyAPIView
-from rest_framework import mixins
+from rest_framework import mixins, viewsets
 from rest_framework.viewsets import GenericViewSet
 from rest_framework.pagination import PageNumberPagination
 # Create your views here.
@@ -39,6 +39,7 @@ class NewsAPI(GenericViewSet,
 #     queryset = News.objects.all()
 #     serializer_class = NewsSerializer
 
-# class NewsDeleteAPIView(DestroyAPIView):
-#     queryset = News.objects.all()
-#     serializer_class = NewsSerializer
+class NewsViewSets(viewsets.ModelViewSet):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
+
