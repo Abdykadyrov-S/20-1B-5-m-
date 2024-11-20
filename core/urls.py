@@ -42,6 +42,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/main/', include("apps.main.urls")),
     path('api/v1/news/', include("apps.news.urls")),
+    path('api/v1/users/', include("apps.users.urls")),
 
     # yasq
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),

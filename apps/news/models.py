@@ -13,9 +13,13 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = 'Категории для новостей'
-
+"""
+OneToOneField - Один к одному (unique=True)
+ForeignKey - Один к многим ( Один к одному (unique=False))
+ManyToManyField = Многое ко многому 
+"""
 class News(models.Model):
-    category = models.OneToOneField(Category, on_delete=models.SET_NULL, null=True, blank=True)
+    category = models.ManyToManyField(Category, null=True, blank=True)
     
     title = models.CharField(
         max_length=155,
