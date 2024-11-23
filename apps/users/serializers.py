@@ -31,4 +31,5 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({'confirm_password': "Пароли не совпадают"})
         if len(attrs['password']) < 8:
             raise serializers.ValidationError({'password': "Минимум 8 символов"})
+        
         return attrs

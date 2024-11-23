@@ -4,9 +4,11 @@
 from rest_framework import mixins, viewsets
 from rest_framework.viewsets import GenericViewSet
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser, IsAuthenticatedOrReadOnly
 # Create your views here.
 from apps.news.models import News
 from apps.news.serializers import NewsSerializer
+from apps.news.permissions import IsAdminOrReadOnly
 
 class Pagination(PageNumberPagination):
     page_size = 3
@@ -21,6 +23,14 @@ class NewsAPI(GenericViewSet,
     queryset = News.objects.all()
     serializer_class = NewsSerializer
     pagination_class = Pagination
+    permission_classes = (IsAdminOrReadOnly, )
+
+"""
+AllowAny - полный доступ  всем
+IsAuthenticated - проверяет на авторизацию
+IsAdminUser - только админ
+IsAuthenticatedOrReadOnly - авторизованные пользователи получают полный доступ а не авторизованные только просмотр
+"""
 
 
 # class NewsListAPIView(ListAPIView):
@@ -42,4 +52,5 @@ class NewsAPI(GenericViewSet,
 class NewsViewSets(viewsets.ModelViewSet):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
+
 
